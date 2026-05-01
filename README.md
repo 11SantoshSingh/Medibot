@@ -1,130 +1,170 @@
-# Build-a-Complete-Medical-Chatbot-with-LLMs-LangChain-Pinecone-Flask-AWS
+Optimizing tool selection...
 
-# How to run?
-### STEPS:
+Read [](file:///c%3A/Users/SANTOSH/OneDrive/Documents/GitHub/Medibot/app.py#1-1), lines 1 to 50
 
-Clone the repository
+Read [](file:///c%3A/Users/SANTOSH/OneDrive/Documents/GitHub/Medibot)
 
-```bash
-git clonehttps://github.com/entbappy/Build-a-Complete-Medical-Chatbot-with-LLMs-LangChain-Pinecone-Flask-AWS.git
+Read [](file:///c%3A/Users/SANTOSH/OneDrive/Documents/GitHub/Medibot/src)
+
+Read [](file:///c%3A/Users/SANTOSH/OneDrive/Documents/GitHub/Medibot/data)
+
+Read [](file:///c%3A/Users/SANTOSH/OneDrive/Documents/GitHub/Medibot/store_index.py)
+
+Read [](file:///c%3A/Users/SANTOSH/OneDrive/Documents/GitHub/Medibot/requirements.txt)
+
+Read [](file:///c%3A/Users/SANTOSH/OneDrive/Documents/GitHub/Medibot/README.md#1-1), lines 1 to 50
+
+Read [](file:///c%3A/Users/SANTOSH/OneDrive/Documents/GitHub/Medibot/src/prompt.py)
+
+Read [](file:///c%3A/Users/SANTOSH/OneDrive/Documents/GitHub/Medibot/src/helper.py)
+
+# Medibot: Medical Chatbot Project Summary
+
+## 📋 Project Overview
+
+**Medibot** is a medical chatbot application built with modern AI technologies that provides intelligent responses to medical queries using Retrieval-Augmented Generation (RAG). The system processes medical documents and uses vector search to provide contextually relevant answers.
+
+## 🏗️ Architecture & Tech Stack
+
+### Core Technologies:
+- **Backend**: Flask (Python web framework)
+- **AI/ML**: LangChain, Google Gemini AI, HuggingFace Embeddings
+- **Vector Database**: Pinecone (for semantic search)
+- **Embeddings**: Sentence Transformers (all-MiniLM-L6-v2 model)
+- **Document Processing**: PyPDF for PDF parsing, RecursiveCharacterTextSplitter for text chunking
+
+### Key Components:
+1. **Document Ingestion**: Loads and processes medical PDFs and text files
+2. **Vector Embeddings**: Converts text chunks into 384-dimensional vectors
+3. **Vector Search**: Semantic search using Pinecone for relevant context retrieval
+4. **LLM Integration**: Google Gemini AI for generating responses
+5. **Web Interface**: Flask-based chat interface
+
+## 📁 Project Structure
+
 ```
-### STEP 01- Create a conda environment after opening the repository
+Medibot/
+├── app.py                 # Main Flask application
+├── store_index.py         # Script to create and populate Pinecone index
+├── requirements.txt       # Python dependencies
+├── README.md             # Project documentation
+├── data/                 # Medical documents (PDFs and text files)
+│   ├── Medical_book.pdf
+│   ├── faq.txt
+│   ├── hospital_app.txt
+│   └── pneumonia.txt
+├── src/                  # Source code modules
+│   ├── helper.py         # Utility functions for data processing
+│   ├── prompt.py         # System prompts for the chatbot
+│   └── __init__.py
+├── templates/            # HTML templates for the web interface
+├── research/             # Research and experimentation notebooks
+│   └── trials.ipynb      # Jupyter notebook for testing components
+└── static/               # Static assets (CSS, JS, images)
+```
 
+## 🚀 Quick Start Guide
+
+### Prerequisites:
+- Python 3.10+
+- Conda (recommended for environment management)
+- API keys for Pinecone and Google Gemini AI
+
+### Installation Steps:
+
+1. **Clone the repository:**
+```bash
+git clone https://github.com/entbappy/Build-a-Complete-Medical-Chatbot-with-LLMs-LangChain-Pinecone-Flask-AWS.git
+cd Medibot
+```
+
+2. **Create and activate conda environment:**
 ```bash
 conda create -n medibot python=3.10 -y
-```
-
-```bash
 conda activate medibot
 ```
 
-
-### STEP 02- install the requirements
+3. **Install dependencies:**
 ```bash
 pip install -r requirements.txt
 ```
 
-
-### Create a `.env` file in the root directory and add your Pinecone & openai credentials as follows:
-
+4. **Set up environment variables:**
+Create a .env file in the root directory:
 ```ini
-PINECONE_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-OPENAI_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+PINECONE_API_KEY=your_pinecone_api_key_here
+GEMINI_API_KEY=your_gemini_api_key_here
 ```
 
-
+5. **Create the vector index:**
 ```bash
-# run the following command to store embeddings to pinecone
 python store_index.py
 ```
 
+6. **Run the application:**
 ```bash
-# Finally run the following command
 python app.py
 ```
 
-Now,
-```bash
-open up localhost:
-```
+7. **Access the chatbot:**
+Open your browser and go to `http://localhost:8080`
 
+## 🔧 Key Features
 
-### Techstack Used:
+### Document Processing:
+- Supports PDF and text file ingestion
+- Intelligent text chunking (500 characters with 20-character overlap)
+- Metadata preservation for source tracking
 
-- Python
-- LangChain
-- Flask
-- GPT
-- Pinecone
+### AI Capabilities:
+- Semantic search using vector embeddings
+- Context-aware responses using RAG
+- Medical domain specialization
+- Concise, medically-focused answers
 
+### Web Interface:
+- Clean chat interface
+- Real-time conversation
+- Responsive design
 
+## 📊 Data Flow
 
-# AWS-CICD-Deployment-with-Github-Actions
+1. **Ingestion**: Medical documents → Text extraction → Chunking
+2. **Indexing**: Text chunks → Vector embeddings → Pinecone storage
+3. **Query Processing**: User question → Vector search → Context retrieval
+4. **Response Generation**: Context + Question → Gemini AI → Answer
 
-## 1. Login to AWS console.
+## 🔑 API Keys Required
 
-## 2. Create IAM user for deployment
+- **Pinecone API Key**: For vector database operations
+- **Google Gemini API Key**: For LLM-powered responses
 
-	#with specific access
+## 🐛 Common Issues & Solutions
 
-	1. EC2 access : It is virtual machine
+### API Quota Limits:
+- Gemini free tier: 20 requests/day
+- Solution: Upgrade to paid plan or wait for reset
 
-	2. ECR: Elastic Container registry to save your docker image in aws
+### Missing Dependencies:
+- Ensure all packages in requirements.txt are installed
+- Use the specified Python version (3.10)
 
+### Environment Variables:
+- Ensure .env file exists with correct API keys
+- Restart the application after changing environment variables
 
-	#Description: About the deployment
+## 🎯 Use Cases
 
-	1. Build docker image of the source code
+- Medical information retrieval
+- Hospital service inquiries
+- General health-related Q&A
+- Educational tool for medical students
 
-	2. Push your docker image to ECR
+## 🔄 Development Workflow
 
-	3. Launch Your EC2 
+1. **Experiment**: Use trials.ipynb for testing components
+2. **Index Data**: Run store_index.py to update the vector database
+3. **Develop**: Modify app.py for backend changes, src for utilities
+4. **Test**: Run the Flask app and interact via web interface
 
-	4. Pull Your image from ECR in EC2
-
-	5. Lauch your docker image in EC2
-
-	#Policy:
-
-	1. AmazonEC2ContainerRegistryFullAccess
-
-	2. AmazonEC2FullAccess
-
-	
-## 3. Create ECR repo to store/save docker image
-    - Save the URI: 315865595366.dkr.ecr.us-east-1.amazonaws.com/medicalbot
-
-	
-## 4. Create EC2 machine (Ubuntu) 
-
-## 5. Open EC2 and Install docker in EC2 Machine:
-	
-	
-	#optinal
-
-	sudo apt-get update -y
-
-	sudo apt-get upgrade
-	
-	#required
-
-	curl -fsSL https://get.docker.com -o get-docker.sh
-
-	sudo sh get-docker.sh
-
-	sudo usermod -aG docker ubuntu
-
-	newgrp docker
-	
-# 6. Configure EC2 as self-hosted runner:
-    setting>actions>runner>new self hosted runner> choose os> then run command one by one
-
-
-# 7. Setup github secrets:
-
-   - AWS_ACCESS_KEY_ID
-   - AWS_SECRET_ACCESS_KEY
-   - AWS_DEFAULT_REGION
-   - ECR_REPO
-   - PINECONE_API_KEY
-   - OPENAI_API_KEY
+This project demonstrates a complete RAG pipeline from document ingestion to web deployment, making it an excellent learning resource for AI-powered applications.
