@@ -1,0 +1,9 @@
+This system is a hospital management web application.
+
+Users can upload chest X-ray images to detect pneumonia using a trained AI model.
+
+The system also allows users to find nearby hospitals based on their location.
+
+Users can book appointments with hospitals directly through the platform.
+
+If pneumonia is detected, users are advised to consult a nearby hospital immediately.

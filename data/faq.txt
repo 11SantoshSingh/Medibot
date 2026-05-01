@@ -1,0 +1,8 @@
+Q: How does pneumonia detection work?
+A: It uses a trained deep learning model on chest X-ray images.
+
+Q: Can I book hospitals through this app?
+A: Yes, you can find nearby hospitals and book appointments.
+
+Q: What should I do if pneumonia is detected?
+A: You should consult a doctor immediately.
