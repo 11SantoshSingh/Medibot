@@ -168,3 +168,10 @@ Open your browser and go to `http://localhost:8080`
 4. **Test**: Run the Flask app and interact via web interface
 
 This project demonstrates a complete RAG pipeline from document ingestion to web deployment, making it an excellent learning resource for AI-powered applications.
+
+# to run the backend model project use cd Backend
+.\.venv\Scripts\python.exe app.py
+
+# to run the backend medibot use
+cd C:\Users\SANTOSH\OneDrive\Desktop\Projects\MAJOR_PROJECT-main\Medibot
+.\.venv\Scripts\python.exe app.py
