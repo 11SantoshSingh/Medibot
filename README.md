@@ -175,3 +175,5 @@ This project demonstrates a complete RAG pipeline from document ingestion to web
 # to run the backend medibot use
 cd C:\Users\SANTOSH\OneDrive\Desktop\Projects\MAJOR_PROJECT-main\Medibot
 .\.venv\Scripts\python.exe app.py
+
+ ECR Repo: 724440691962.dkr.ecr.ap-southeast-2.amazonaws.com/medicalbot
